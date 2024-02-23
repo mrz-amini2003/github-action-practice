@@ -1,0 +1,32 @@
+name: Launch Project
+on: push
+jobs:
+  execute_lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code From Repositoy
+        uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm ci
+      - name: Run Lint
+        run: npm run lint
+  execute_test:
+    needs: execute_lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code From Repositoy
+        uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm ci
+      - name: Run Test
+        run: npm run test
+  execute_build:
+    needs: execute_test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code From Repositoy
+        uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm ci
+      - name: Run Build
+        run: npm run build
