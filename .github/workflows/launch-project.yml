@@ -44,7 +44,7 @@ jobs:
       - name: Get Artifact
         uses: actions/download-artifact@v4
         with: 
-          name: dist
+          name: project artifact
       - name: Get Folders
         run: ls
       - name: Deploy Project
