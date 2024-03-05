@@ -38,7 +38,7 @@ jobs:
             dist
           # package.json
   Deploy-Project: 
-    needs: execute_test
+    needs: execute_build
     runs-on: ubuntu-latest
     steps: 
       - name: Get Artifact
