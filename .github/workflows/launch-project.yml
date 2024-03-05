@@ -36,4 +36,16 @@ jobs:
           name: project artifact
           path: |
             dist
-            package.json
+          # package.json
+  Deploy-Project: 
+    needs: execute_test
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Get Artifact
+        uses: actions/download-artifact@v4
+        with: 
+          name: dist
+      - name: Get Folders
+        run: ls
+      - name: Deploy Project
+        run: echo "Deploying..."
